@@ -1,19 +1,48 @@
-import './App.css';
+import { useState } from "react";
+
+import "./App.css";
+
+// Component
+import Header from "./components/Header";
+import Contact from "./components/Contact";
+import ContactForm from "./components/ContactForm";
+
+import { Box } from "@mui/material";
 
 // Uncomment untuk memuat daftar kontak
-// import contactsJSON from './data/contacts.json';
+import contactsJSON from "./data/contacts.json";
+
 const App = () => {
-  // Masukkan Header dan lakukan map untuk Contact ke dalam div App
-  // untuk membuat daftar kontak bisa menggunakan MUI list
-  // https://mui.com/material-ui/react-list/#folder-list
+	// Masukkan Header dan lakukan map untuk Contact ke dalam div App
+	// untuk membuat daftar kontak bisa menggunakan MUI list
+	// https://mui.com/material-ui/react-list/#folder-list
 
-  // Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
-  // Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
+	// Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
+	// Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
+	const [contacts, setContacts] = useState(contactsJSON);
 
-  return (
-    <div className="App">
-    </div>
-  );
+	const addNewContact = newContact => {
+		setContacts([...contacts, newContact]);
+	};
+
+	return (
+		<div className="App">
+			<Header />
+			<Box
+				sx={{
+					display: "flex",
+					alignItem: "center",
+					justifyContent: "space-between",
+					mx: 10,
+					my: 2,
+					maxWidth: "100%",
+				}}
+			>
+				<ContactForm addNewContact={addNewContact} />
+				<Contact data={contacts} />
+			</Box>
+		</div>
+	);
 };
 
 export default App;
