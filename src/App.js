@@ -12,6 +12,8 @@ import { Box, List } from "@mui/material";
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from "./data/contacts.json";
 
+const initialState = [...contactsJSON];
+
 const App = () => {
 	// Masukkan Header dan lakukan map untuk Contact ke dalam div App
 	// untuk membuat daftar kontak bisa menggunakan MUI list
@@ -19,7 +21,7 @@ const App = () => {
 
 	// Masukkan contacts yang sudah didapat dalam JSON sebagai initial state
 	// Buatlah handler untuk menambahkan kontak baru yang akan dikirim ke ContactForm
-	const [contacts, setContacts] = useState(contactsJSON);
+	const [contacts, setContacts] = useState(initialState);
 
 	const addNewContact = newContact => {
 		setContacts([...contacts, newContact]);
@@ -46,8 +48,8 @@ const App = () => {
 						maxWidth: 600,
 					}}
 				>
-					{contacts.map((contact, index) => (
-						<Contact contact={contact} key={index} />
+					{contacts.map(contact => (
+						<Contact data={contact} key={contact.photo} />
 					))}
 				</List>
 			</Box>
