@@ -15,55 +15,37 @@ import {
 	ListItemText,
 } from "@mui/material";
 
-const Contact = ({ data }) => {
+const Contact = ({ contact, index }) => {
 	// Contact berisi foto, nama, telepon, dan email
 	return (
-		<List
-			sx={{
-				bgcolor: "#DBF6F0",
-				flex: 1,
-				maxWidth: 600,
-			}}
-		>
-			{data.map((item, index) => (
-				<React.Fragment key={index}>
-					<ListItem align-items="flex-start">
-						<ListItemAvatar sx={{ mr: 2 }}>
-							<Avatar
-								src={item.photo}
-								alt={item.email}
-								sx={{ width: 56, height: 56 }}
-							/>
-						</ListItemAvatar>
-						<ListItemText
-							disableTypography
-							primary={
-								<Typography variant="h6">
-									{item.name}
-								</Typography>
-							}
-							secondary={
-								<>
-									<Typography
-										variant="body2"
-										color="text.secondary"
-									>
-										{item.phone}
-									</Typography>
-									<Typography
-										variant="body2"
-										color="text.secondary"
-									>
-										{item.email}
-									</Typography>
-								</>
-							}
-						/>
-					</ListItem>
-					<Divider />
-				</React.Fragment>
-			))}
-		</List>
+		<React.Fragment key={index}>
+			<ListItem align-items="flex-start">
+				<ListItemAvatar sx={{ mr: 2 }}>
+					<Avatar
+						src={contact.photo}
+						alt={contact.email}
+						sx={{ width: 56, height: 56 }}
+					/>
+				</ListItemAvatar>
+				<ListItemText
+					disableTypography
+					primary={
+						<Typography variant="h6">{contact.name}</Typography>
+					}
+					secondary={
+						<>
+							<Typography variant="body2" color="text.secondary">
+								{contact.phone}
+							</Typography>
+							<Typography variant="body2" color="text.secondary">
+								{contact.email}
+							</Typography>
+						</>
+					}
+				/>
+			</ListItem>
+			<Divider />
+		</React.Fragment>
 	);
 };
 

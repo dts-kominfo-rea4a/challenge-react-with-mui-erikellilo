@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Contact from "./components/Contact";
 import ContactForm from "./components/ContactForm";
 
-import { Box } from "@mui/material";
+import { Box, List } from "@mui/material";
 
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from "./data/contacts.json";
@@ -39,7 +39,17 @@ const App = () => {
 				}}
 			>
 				<ContactForm addNewContact={addNewContact} />
-				<Contact data={contacts} />
+				<List
+					sx={{
+						bgcolor: "#DBF6F0",
+						flex: 1,
+						maxWidth: 600,
+					}}
+				>
+					{contacts.map((contact, index) => (
+						<Contact contact={contact} key={index} />
+					))}
+				</List>
 			</Box>
 		</div>
 	);
