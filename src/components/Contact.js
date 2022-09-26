@@ -7,8 +7,6 @@ import React from "react";
 // atau langsung tambahkan dengan sx={{}}
 import {
 	Typography,
-	Divider,
-	List,
 	ListItem,
 	ListItemAvatar,
 	Avatar,
@@ -18,7 +16,7 @@ import {
 const Contact = ({ contact, index }) => {
 	// Contact berisi foto, nama, telepon, dan email
 	return (
-		<React.Fragment key={index}>
+		<>
 			<ListItem align-items="flex-start">
 				<ListItemAvatar sx={{ mr: 2 }}>
 					<Avatar
@@ -44,8 +42,7 @@ const Contact = ({ contact, index }) => {
 					}
 				/>
 			</ListItem>
-			<Divider />
-		</React.Fragment>
+		</>
 	);
 };
 

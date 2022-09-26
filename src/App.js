@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import "./App.css";
 
@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Contact from "./components/Contact";
 import ContactForm from "./components/ContactForm";
 
-import { Box, List } from "@mui/material";
+import { Box, List, Divider } from "@mui/material";
 
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from "./data/contacts.json";
@@ -47,7 +47,10 @@ const App = () => {
 					}}
 				>
 					{contacts.map((contact, index) => (
-						<Contact contact={contact} key={index} />
+						<React.Fragment key={index}>
+							<Contact contact={contact} />
+							<Divider />
+						</React.Fragment>
 					))}
 				</List>
 			</Box>
