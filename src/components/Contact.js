@@ -12,6 +12,7 @@ import {
 	ListItemAvatar,
 	Avatar,
 	ListItemText,
+	Box,
 } from "@mui/material";
 
 const Contact = ({ contact }) => {
@@ -27,22 +28,11 @@ const Contact = ({ contact }) => {
 						sx={{ width: 56, height: 56 }}
 					/>
 				</ListItemAvatar>
-				<ListItemText
-					disableTypography
-					primary={
-						<Typography variant="h6">{contact.name}</Typography>
-					}
-					secondary={
-						<>
-							<Typography variant="body2" color="text.secondary">
-								{contact.phone}
-							</Typography>
-							<Typography variant="body2" color="text.secondary">
-								{contact.email}
-							</Typography>
-						</>
-					}
-				/>
+				<Box>
+					<ListItemText primary={contact.name} />
+					<ListItemText secondary={contact.phone} />
+					<ListItemText secondary={contact.email} />
+				</Box>
 			</ListItem>
 			<Divider />
 		</>

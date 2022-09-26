@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import Contact from "./components/Contact";
 import ContactForm from "./components/ContactForm";
 
-import { Box, List, Divider } from "@mui/material";
+import { Box, List } from "@mui/material";
 
 // Uncomment untuk memuat daftar kontak
 import contactsJSON from "./data/contacts.json";
