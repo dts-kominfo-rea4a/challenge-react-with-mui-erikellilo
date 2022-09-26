@@ -8,13 +8,15 @@ import React from "react";
 import {
 	Typography,
 	ListItem,
+	Divider,
 	ListItemAvatar,
 	Avatar,
 	ListItemText,
 } from "@mui/material";
 
-const Contact = ({ contact, index }) => {
+const Contact = ({ contact }) => {
 	// Contact berisi foto, nama, telepon, dan email
+	if (!contact) return <Typography variant="h6">Loading</Typography>;
 	return (
 		<>
 			<ListItem align-items="flex-start">
@@ -42,6 +44,7 @@ const Contact = ({ contact, index }) => {
 					}
 				/>
 			</ListItem>
+			<Divider />
 		</>
 	);
 };

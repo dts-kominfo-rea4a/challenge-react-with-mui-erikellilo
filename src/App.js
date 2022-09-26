@@ -47,10 +47,7 @@ const App = () => {
 					}}
 				>
 					{contacts.map((contact, index) => (
-						<React.Fragment key={index}>
-							<Contact contact={contact} />
-							<Divider />
-						</React.Fragment>
+						<Contact contact={contact} key={index} />
 					))}
 				</List>
 			</Box>
